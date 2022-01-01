@@ -1,9 +1,3 @@
-<%-- 
-    Document   : inventory
-    Created on : 28/12/2021, 09:45:05 PM
-    Author     : H4HG
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

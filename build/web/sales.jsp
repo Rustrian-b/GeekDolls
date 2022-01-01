@@ -12,7 +12,7 @@
         <title>Ventas</title>
     </head>
     <body>
-        <form action="" method="post">
+        <form action="registroSales" method="post">
             
             <p>Cliente: <input name="client" type="text" required="" placeholder="Nombre completo del cliente"> </p>
             <p>Dirección: <input name="address" type="text" required="" placeholder="Dirección completa del cliente"> </p>

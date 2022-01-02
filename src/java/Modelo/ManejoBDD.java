@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -61,7 +62,7 @@ public class ManejoBDD
         }
     }
     
-    public boolean Insertar(String pInstruccion)
+    public static boolean Insertar(String pInstruccion)
     {        
         boolean vResult = false;
         try
@@ -76,5 +77,30 @@ public class ManejoBDD
         }
         
         return vResult;
+    }
+    
+    public static ArrayList Inventory()
+    {
+        ArrayList<ClsInventory> lista = new ArrayList();
+        String Query = "select id_number, description from inventory";
+        conectar();
+        
+        try
+        {
+            s = c.prepareStatement(Query);
+            r = s.executeQuery(Query);
+            
+            while(r.next())
+            {
+                ClsInventory i = new ClsInventory();                
+                i.setvID_number(Integer.parseInt(r.getString(1)));
+                i.setvDescription(r.getString(2));
+                lista.add(i);                
+            }
+        }catch(SQLException ex)
+        {
+            Logger.getLogger(ManejoBDD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lista;
     }
 }

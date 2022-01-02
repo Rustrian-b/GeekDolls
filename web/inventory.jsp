@@ -6,7 +6,7 @@
         <title>Inventario</title>
     </head>
     <body>
-        <form action="" method="post">
+        <form action="registroInventory" method="post">
             <p>Producto: <input name="description" type="text" required="" placeholder="Descripción del producto"> </p>
             <input type="submit" value="Registrar producto nuevo">
         </form>

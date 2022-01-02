@@ -6,22 +6,39 @@ package Modelo;
  */
 public class registrosBDD 
 {
-    public int registroSales(String vProducto, String vCliente, String vDireccion)
-    {
-        int vResult = 1;
+    public boolean registroSales(String vProducto, String vCliente, String vDireccion)
+    {        
         String vInstruction ="";
         vInstruction = "insert into sales (description, name, address, status) values ('" +vProducto + "','"+vCliente +"','"+vDireccion+"','Sin empacar')";
         ManejoBDD m = new ManejoBDD();
         
-        vResult = m.Insertar(vInstruction);
+        boolean vResult = m.Insertar(vInstruction);
         System.out.println(vInstruction);
-        if(vResult ==1)
+        if(vResult == true)
         {
             return vResult;
         }
         else
         {
-            return vResult = 0;
+            return vResult = false;
         }                
+    }
+    
+    public boolean registroInventory(String vDescription)
+    {
+        String vInstruction ="";
+        vInstruction = "insert into inventory (description) values ('" + vDescription + "')";
+        ManejoBDD m = new ManejoBDD();
+        
+        boolean vResult = m.Insertar(vInstruction);
+        System.out.println(vInstruction);
+        if(vResult == true)
+        {
+            return vResult;
+        }
+        else
+        {
+            return vResult = false;
+        }
     }
 }

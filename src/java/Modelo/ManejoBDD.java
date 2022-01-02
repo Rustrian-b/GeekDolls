@@ -61,18 +61,18 @@ public class ManejoBDD
         }
     }
     
-    public int Insertar(String pInstruccion)
+    public boolean Insertar(String pInstruccion)
     {        
-        int vResult = 0;
+        boolean vResult = false;
         try
         {
             conectar();
             s.executeQuery(pInstruccion);
-            vResult = 1;
+            vResult = true;
         }catch(SQLException e)
         {
             System.out.println("Error al realizar inseción en la BD");
-            vResult = 0;
+            vResult = false;
         }
         
         return vResult;

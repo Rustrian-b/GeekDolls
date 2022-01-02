@@ -79,15 +79,13 @@ public class registroSales extends HttpServlet {
             
             String vClient = request.getParameter("client");
             String vAddress = request.getParameter("address");
-            String vContinuar = "./main.html";
-            
-            int vResult = 0;
+            String vContinuar = "./index.html";
             
             registrosBDD registro = new registrosBDD();
                     
-            vResult = registro.registroSales("prueba", vClient, vAddress);            
+            boolean vResult = registro.registroSales("prueba", vClient, vAddress);            
             
-            if(vResult == 1)
+            if(vResult == true)
             {
                 try (PrintWriter out = response.getWriter()) 
                 {                

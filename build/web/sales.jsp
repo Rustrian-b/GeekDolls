@@ -4,6 +4,10 @@
     Author     : H4HG
 --%>
 
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Modelo.ClsInventory"%>
+<%@page import="Modelo.ManejoBDD"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,6 +18,20 @@
     <body>
         <form action="registroSales" method="post">
             
+            <input list="browsers" name="product">
+            <datalist id="browsers">
+            <%
+                ArrayList<ClsInventory> aProducto = ManejoBDD.Inventory();
+                Iterator<ClsInventory> iter = aProducto.iterator();
+                ClsInventory per = null;                
+                
+                while(iter.hasNext())
+                {
+                    per = iter.next();
+                    out.println("<option value="+ per.getvDescription()+">");
+                }    
+            %>
+            </datalist>                                    
             <p>Cliente: <input name="client" type="text" required="" placeholder="Nombre completo del cliente"> </p>
             <p>Dirección: <input name="address" type="text" required="" placeholder="Dirección completa del cliente"> </p>
             <br/>

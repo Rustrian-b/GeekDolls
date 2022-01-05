@@ -17,6 +17,7 @@ public class ClsSales
     
     int vID_number;
     String vDescription;
+    String vName;
     String vAddress;
     String vStatus;
 
@@ -52,11 +53,20 @@ public class ClsSales
         this.vStatus = vStatus;
     }
 
-    public ClsSales(String vDescription, String vAddress, String vStatus) {
+    public String getvName() {
+        return vName;
+    }
+
+    public void setvName(String vName) {
+        this.vName = vName;
+    }
+
+    public ClsSales(int vID_number, String vDescription, String vName, String vAddress, String vStatus) {
+        this.vID_number = vID_number;
         this.vDescription = vDescription;
+        this.vName = vName;
         this.vAddress = vAddress;
         this.vStatus = vStatus;
     }
-    
-    
+            
 }

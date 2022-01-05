@@ -18,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author H4HG
  */
-@WebServlet(name = "registroInventory", urlPatterns = {"/registroInventory"})
-public class registroInventory extends HttpServlet {
+@WebServlet(name = "registroShipping", urlPatterns = {"/registroShipping"})
+public class registroShipping extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,10 +37,10 @@ public class registroInventory extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet registroInventory</title>");            
+            out.println("<title>Servlet registroShipping</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet registroInventory at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet registroShipping at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }*/
@@ -72,17 +72,17 @@ public class registroInventory extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException 
-    {                
+    {
         processRequest(request, response);
         
         response.setContentType("text/html;charset=UTF-8");
         
-        String vDescription = request.getParameter("description");
+        int vID = Integer.parseInt(request.getParameter("id_number"));
         String vContinuar = "./index.html";
         
-        registrosBDD registro = new registrosBDD();
+        registrosBDD update = new registrosBDD();
         
-        boolean vResult = registro.registroInventory(vDescription);
+        boolean vResult = update.updateSales(vID);
         
         if(vResult == true)
         {
@@ -92,10 +92,10 @@ public class registroInventory extends HttpServlet {
                 out.println("<html>");
                 out.println("<head>");
                 //out.println("<link rel=\"stylesheet\" href=\"./css/\">");
-                out.println("<title>Registro Inventario</title>");            
+                out.println("<title>Servlet registroEstudiantes</title>");            
                 out.println("</head>");
                 out.println("<body>");
-                out.println("<h1>Se ha registrado el producto: " + vDescription + "</h1>");
+                out.println("<h1>Se ha empaco el producto: " + vID + ", producto listo para entrega</h1>");
                 //out.println("<h1>Que se enviara a la direccion: " + vAddress + "</h1>");
                 out.println("<h2><a href="+vContinuar+">Menú</a></h2></br>");
                 out.println("</body>");
@@ -109,7 +109,7 @@ public class registroInventory extends HttpServlet {
                 out.println("<!DOCTYPE html>");
                 out.println("<html>");
                 out.println("<head>");
-                out.println("<title>Registro Inventario</title>");            
+                out.println("<title>Servlet registroEstudiantes</title>");            
                 out.println("</head>");
                 out.println("<body>");
                 out.println("<h1>La venta no ha sido registrada, intente de nuevo.</h1>");

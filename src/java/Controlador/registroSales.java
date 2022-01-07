@@ -80,11 +80,12 @@ public class registroSales extends HttpServlet {
             String vClient = request.getParameter("client");
             String vAddress = request.getParameter("address");
             String vProduct = request.getParameter("product");
+            int vAmount = Integer.parseInt(request.getParameter("amount"));
             String vContinuar = "./index.html";
             
             registrosBDD registro = new registrosBDD();
                     
-            boolean vResult = registro.registroSales(vProduct, vClient, vAddress);            
+            boolean vResult = registro.registroSales(vProduct, vClient, vAddress, vAmount);
             
             if(vResult == true)
             {

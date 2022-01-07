@@ -16,6 +16,7 @@ public class ClsSales
     }
     
     int vID_number;
+    int vAmount;
     String vDescription;
     String vName;
     String vAddress;
@@ -68,5 +69,12 @@ public class ClsSales
         this.vAddress = vAddress;
         this.vStatus = vStatus;
     }
-            
+
+    public int getvAmount() {
+        return vAmount;
+    }
+
+    public void setvAmount(int vAmount) {
+        this.vAmount = vAmount;
+    }                   
 }

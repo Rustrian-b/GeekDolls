@@ -18,6 +18,9 @@
                 <th>
                     Descripción
                 </th>
+                <th>
+                    Cantidad
+                </th>
             </thead>
             <%
                 ArrayList<ClsInventory> aProducto = ManejoBDD.Inventory();
@@ -32,6 +35,7 @@
                         <tr>
                             <td><%=per.getvID_number()%></td>
                             <td><%=per.getvDescription()%></td>
+                            <td><%=per.getvAmount()%></td>
                         </tr>
                     </tbody>
             <%}%>                        
@@ -41,6 +45,7 @@
         <div>
             <form action="registroInventory" method="post">
                 <p>Producto: <input name="description" type="text" required="" placeholder="Descripción del producto"> </p>
+                <p>Cantidad: <input name="amount" type="number" required="" placeholder="Cantidad a ingresar"> </p>
                 <input type="submit" value="Registrar producto nuevo">
             </form>
         </div>

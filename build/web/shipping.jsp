@@ -26,6 +26,9 @@
                     Producto
                 </th>
                 <th>
+                    Cantidad
+                </th>
+                <th>
                     Cliente
                 </th>
                 <th>
@@ -48,6 +51,7 @@
             <tr>
                 <td><%=per.getvID_number()%></td>
                 <td><%=per.getvDescription()%></td>
+                <td><%=per.getvAmount()%></td>
                 <td><%=per.getvName()%></td>
                 <td><%=per.getvAddress()%></td>
                 <td><%=per.getvStatus()%></td>

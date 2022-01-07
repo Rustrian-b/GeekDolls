@@ -78,11 +78,12 @@ public class registroInventory extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         String vDescription = request.getParameter("description");
+        int vAmount = Integer.parseInt(request.getParameter("amount"));
         String vContinuar = "./index.html";
         
         registrosBDD registro = new registrosBDD();
         
-        boolean vResult = registro.registroInventory(vDescription);
+        boolean vResult = registro.registroInventory(vDescription, vAmount);
         
         if(vResult == true)
         {

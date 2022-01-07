@@ -13,6 +13,7 @@ public class ClsInventory
 {
     int vID_number;
     String vDescription;
+    int vAmount;
 
     public int getvID_number() {
         return vID_number;
@@ -36,5 +37,12 @@ public class ClsInventory
     public ClsInventory(String vDescription) {
         this.vDescription = vDescription;
     }
-        
+
+    public int getvAmount() {
+        return vAmount;
+    }
+
+    public void setvAmount(int vAmount) {
+        this.vAmount = vAmount;
+    }            
 }

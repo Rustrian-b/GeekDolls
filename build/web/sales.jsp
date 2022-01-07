@@ -28,12 +28,15 @@
                 while(iter.hasNext())
                 {
                     per = iter.next();
-                    out.println("<option value="+ per.getvDescription()+">");
+                    //out.println("<option value="+ per.getvDescription()+">");
+                    out.println("<option>"+per.getvDescription()+"</option>");
+                    //out.println(per.getvDescription());
                 }    
             %>
             </datalist>                                    
             <p>Cliente: <input name="client" type="text" required="" placeholder="Nombre completo del cliente"> </p>
-            <p>Dirección: <input name="address" type="text" required="" placeholder="Dirección completa del cliente"> </p>
+            <p>Dirección: <input name="address" type="text" required="" placeholder="Dirección de entrega"> </p>
+            <p>Cantidad: <input name="amount" type="number" required="" placeholder="Cantidad"> </p>
             <br/>
             <input type="submit" value="Registrar venta">
         </form>

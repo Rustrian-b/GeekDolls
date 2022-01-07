@@ -86,7 +86,7 @@ public class ManejoBDD
     public static ArrayList Inventory()
     {
         ArrayList<ClsInventory> lista = new ArrayList();
-        String Query = "select id_number, description from inventory order by id_number";
+        String Query = "select id_number, description, amount from inventory order by id_number";
         conectar();
         
         try
@@ -99,6 +99,7 @@ public class ManejoBDD
                 ClsInventory i = new ClsInventory();                
                 i.setvID_number(Integer.parseInt(r.getString(1)));
                 i.setvDescription(r.getString(2));
+                i.setvAmount(Integer.parseInt(r.getString(3)));
                 lista.add(i);                
             }
         }catch(SQLException ex)
@@ -111,7 +112,7 @@ public class ManejoBDD
     public static ArrayList Sales()
     {
         ArrayList<ClsSales> lista = new ArrayList();
-        String Query = "select id_number, description, name, address, status from sales where status = 'Sin empacar' order by id_number";
+        String Query = "select id_number, description, name, address, status, amount from sales where status = 'Sin empacar' order by id_number";
         conectar();
         
         try
@@ -127,6 +128,7 @@ public class ManejoBDD
                 c.setvName(r.getString(3));
                 c.setvAddress(r.getString(4));
                 c.setvStatus(r.getString(5));
+                c.setvAmount(Integer.parseInt(r.getString(6)));
                 lista.add(c);
             }
         }catch(SQLException ex)

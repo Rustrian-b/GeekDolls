@@ -5,9 +5,13 @@
  */
 package Controlador;
 
+import Modelo.ClsInventory;
+import Modelo.ManejoBDD;
 import java.io.IOException;
 import Modelo.registrosBDD;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Iterator;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -81,46 +85,86 @@ public class registroSales extends HttpServlet {
             String vAddress = request.getParameter("address");
             String vProduct = request.getParameter("product");
             int vAmount = Integer.parseInt(request.getParameter("amount"));
+            int vOriginalAmount = 0;
+            int vFinalAmount = 0;
             String vContinuar = "./index.html";
             
-            registrosBDD registro = new registrosBDD();
-                    
-            boolean vResult = registro.registroSales(vProduct, vClient, vAddress, vAmount);
+            ArrayList<ClsInventory> aInventory = ManejoBDD.Inventory();
+            Iterator<ClsInventory> iter = aInventory.iterator();
+            ClsInventory per = null;
             
-            if(vResult == true)
+            while(iter.hasNext())
+            {
+                per = iter.next();
+                if(vProduct.equals(per.getvDescription()))
+                {
+                    vOriginalAmount = per.getvAmount();                    
+                }
+            }                        
+            
+            if(vOriginalAmount < vAmount)
             {
                 try (PrintWriter out = response.getWriter()) 
-                {                
+                {                    
                     out.println("<!DOCTYPE html>");
                     out.println("<html>");
                     out.println("<head>");
-                    //out.println("<link rel=\"stylesheet\" href=\"./css/\">");
-                    out.println("<title>Servlet registroEstudiantes</title>");            
+                    out.println("<title>Servlet salidaProducto</title>");
+                    out.println("<link rel=\"stylesheet\" href=\"./css/styleServlet.css\">");
                     out.println("</head>");
                     out.println("<body>");
-                    out.println("<h1>Se ha registrado la venta a nombre de: " + vClient + "</h1>");
-                    out.println("<h1>Que se enviara a la direccion: " + vAddress + "</h1>");
-                    out.println("<h2><a href="+vContinuar+">Menú</a></h2></br>");
-                    out.println("</body>");
-                    out.println("</html>");
-                }  
-            }
-            else
-            {
-                try (PrintWriter out = response.getWriter()) 
-                {                
-                    out.println("<!DOCTYPE html>");
-                    out.println("<html>");
-                    out.println("<head>");
-                    out.println("<title>Servlet registroEstudiantes</title>");            
-                    out.println("</head>");
-                    out.println("<body>");
-                    out.println("<h1>La venta no ha sido registrada, intente de nuevo.</h1>");
-                    out.println("<h2><a href="+vContinuar+">Intentar de Nuevo</a></h2></br>");
+                    out.println("<h1>Imposible realizar la venta debido a que no existen suficiente cantidad en existencia</h1>");
+                    out.println("<p>La cantidad a retirar es de " + vAmount + " y el maximo disponible es de " + vOriginalAmount + "</p>");
+                    //out.println("<a href=" + vRegresar + "> Haga clic para reintentar </a><br/>");
+                    out.println("<a href=" + vContinuar + "> Haga clic para salir </a> <br/>");                        
                     out.println("</body>");
                     out.println("</html>");
                 }
-            }
+            }else
+            {
+                vFinalAmount = vOriginalAmount - vAmount;
+            
+                registrosBDD registro = new registrosBDD();
+                    
+                registro.updateInventory(vProduct, vFinalAmount);
+            
+                boolean vResult = registro.registroSales(vProduct, vClient, vAddress, vAmount);
+            
+                if(vResult == true)
+                {
+                    try (PrintWriter out = response.getWriter()) 
+                    {                
+                        out.println("<!DOCTYPE html>");
+                        out.println("<html>");
+                        out.println("<head>");
+                        //out.println("<link rel=\"stylesheet\" href=\"./css/\">");
+                        out.println("<title>Servlet registroEstudiantes</title>");            
+                        out.println("</head>");
+                        out.println("<body>");
+                        out.println("<h1>Se ha registrado la venta a nombre de: " + vClient + "</h1>");
+                        out.println("<h1>Que se enviara a la direccion: " + vAddress + "</h1>");
+                        out.println("<h2><a href="+vContinuar+">Menú</a></h2></br>");
+                        out.println("</body>");
+                        out.println("</html>");
+                    }  
+                }
+                else
+                {
+                    try (PrintWriter out = response.getWriter()) 
+                    {                
+                        out.println("<!DOCTYPE html>");
+                        out.println("<html>");
+                        out.println("<head>");
+                        out.println("<title>Servlet registroEstudiantes</title>");            
+                        out.println("</head>");
+                        out.println("<body>");
+                        out.println("<h1>La venta no ha sido registrada, intente de nuevo.</h1>");
+                        out.println("<h2><a href="+vContinuar+">Intentar de Nuevo</a></h2></br>");
+                        out.println("</body>");
+                        out.println("</html>");
+                    }
+                }
+            }                        
             processRequest(request, response);
         }
 

@@ -21,7 +21,7 @@
             <input list="browsers" name="product">
             <datalist id="browsers">
             <%
-                ArrayList<ClsInventory> aProducto = ManejoBDD.Inventory();
+                ArrayList<ClsInventory> aProducto = ManejoBDD.InventoryToSale();
                 Iterator<ClsInventory> iter = aProducto.iterator();
                 ClsInventory per = null;                
                 

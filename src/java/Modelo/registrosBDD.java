@@ -42,6 +42,17 @@ public class registrosBDD
         }
     }
     
+    public static void updateInventory(String vDescription, int vAmount)
+    {
+        String vInstruction = "";
+        vInstruction = "update inventory set amount = "+ vAmount +" where description = '" + vDescription + "' " ;
+        ManejoBDD m = new ManejoBDD();
+        
+        System.out.println(vInstruction);
+        m.update(vInstruction);
+        
+    }
+    
     public boolean updateSales(int vID)
     {
         String vInstruction = "";

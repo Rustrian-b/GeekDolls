@@ -109,10 +109,65 @@ public class ManejoBDD
         return lista;
     }
     
+    public static ArrayList InventoryToSale()
+    {
+        ArrayList<ClsInventory> lista = new ArrayList();
+        String Query = "select id_number, description, amount from inventory where amount != 0 order by id_number";
+        conectar();
+        
+        try
+        {
+            s = c.prepareStatement(Query);
+            r = s.executeQuery(Query);
+            
+            while(r.next())
+            {
+                ClsInventory i = new ClsInventory();                
+                i.setvID_number(Integer.parseInt(r.getString(1)));
+                i.setvDescription(r.getString(2));
+                i.setvAmount(Integer.parseInt(r.getString(3)));
+                lista.add(i);                
+            }
+        }catch(SQLException ex)
+        {
+            Logger.getLogger(ManejoBDD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lista;
+    }
+    
     public static ArrayList Sales()
     {
         ArrayList<ClsSales> lista = new ArrayList();
         String Query = "select id_number, description, name, address, status, amount from sales where status = 'Sin empacar' order by id_number";
+        conectar();
+        
+        try
+        {
+            s = c.prepareStatement(Query);
+            r = s.executeQuery(Query);
+            
+            while(r.next())
+            {
+                ClsSales c = new ClsSales();
+                c.setvID_number(Integer.parseInt(r.getString(1)));
+                c.setvDescription(r.getString(2));
+                c.setvName(r.getString(3));
+                c.setvAddress(r.getString(4));
+                c.setvStatus(r.getString(5));
+                c.setvAmount(Integer.parseInt(r.getString(6)));
+                lista.add(c);
+            }
+        }catch(SQLException ex)
+        {
+            Logger.getLogger(ManejoBDD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lista;
+    }
+    
+    public static ArrayList allSales()
+    {
+        ArrayList<ClsSales> lista = new ArrayList();
+        String Query = "select id_number, description, name, address, status, amount from sales order by id_number";
         conectar();
         
         try

@@ -17,7 +17,7 @@
     </head>
     <body>
         <form action="registroSales" method="post">
-            
+            <p> Producto:
             <input list="browsers" name="product">
             <datalist id="browsers">
             <%
@@ -33,10 +33,19 @@
                     //out.println(per.getvDescription());
                 }    
             %>
-            </datalist>                                    
+            </datalist>  
+            </p>
             <p>Cliente: <input name="client" type="text" required="" placeholder="Nombre completo del cliente"> </p>
             <p>Dirección: <input name="address" type="text" required="" placeholder="Dirección de entrega"> </p>
             <p>Cantidad: <input name="amount" type="number" required="" placeholder="Cantidad"> </p>
+            <p> Metodo de pago:
+            <input list="metodo" name="payment">
+            <datalist id="metodo">
+                <option value="TRANSFERENCIA"></option>
+                <option value="EFECTIVO"></option>
+            </datalist>
+            </p>
+            
             <br/>
             <input type="submit" value="Registrar venta">
         </form>

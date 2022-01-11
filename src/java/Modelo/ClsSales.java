@@ -21,6 +21,7 @@ public class ClsSales
     String vName;
     String vAddress;
     String vStatus;
+    String vPayment;
 
     public int getvID_number() {
         return vID_number;
@@ -60,15 +61,7 @@ public class ClsSales
 
     public void setvName(String vName) {
         this.vName = vName;
-    }
-
-    public ClsSales(int vID_number, String vDescription, String vName, String vAddress, String vStatus) {
-        this.vID_number = vID_number;
-        this.vDescription = vDescription;
-        this.vName = vName;
-        this.vAddress = vAddress;
-        this.vStatus = vStatus;
-    }
+    }    
 
     public int getvAmount() {
         return vAmount;
@@ -76,5 +69,25 @@ public class ClsSales
 
     public void setvAmount(int vAmount) {
         this.vAmount = vAmount;
-    }                   
+    }  
+
+    public String getvPayment() {
+        return vPayment;
+    }
+
+    public void setvPayment(String vPayment) {
+        this.vPayment = vPayment;
+    }
+
+    public ClsSales(int vID_number, int vAmount, String vDescription, String vName, String vAddress, String vStatus, String vPayment) {
+        this.vID_number = vID_number;
+        this.vAmount = vAmount;
+        this.vDescription = vDescription;
+        this.vName = vName;
+        this.vAddress = vAddress;
+        this.vStatus = vStatus;
+        this.vPayment = vPayment;
+    }
+    
+    
 }

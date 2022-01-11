@@ -79,6 +79,7 @@ public class registroShipping extends HttpServlet {
         
         int vID = Integer.parseInt(request.getParameter("id_number"));
         String vContinuar = "./index.html";
+        String vRepetir = "./shipping.jsp";
         
         registrosBDD update = new registrosBDD();
         
@@ -92,11 +93,11 @@ public class registroShipping extends HttpServlet {
                 out.println("<html>");
                 out.println("<head>");
                 //out.println("<link rel=\"stylesheet\" href=\"./css/\">");
-                out.println("<title>Servlet registroEstudiantes</title>");            
+                out.println("<title>Envio confirmado</title>");            
                 out.println("</head>");
                 out.println("<body>");
                 out.println("<h1>Se ha empaco el producto: " + vID + ", producto listo para entrega</h1>");
-                //out.println("<h1>Que se enviara a la direccion: " + vAddress + "</h1>");
+                out.println("<h2><a href="+vRepetir+">Confirmar otro envio</a></h2></br>");
                 out.println("<h2><a href="+vContinuar+">Menú</a></h2></br>");
                 out.println("</body>");
                 out.println("</html>");
@@ -109,11 +110,12 @@ public class registroShipping extends HttpServlet {
                 out.println("<!DOCTYPE html>");
                 out.println("<html>");
                 out.println("<head>");
-                out.println("<title>Servlet registroEstudiantes</title>");            
+                out.println("<title>Envio no confirmado</title>");            
                 out.println("</head>");
                 out.println("<body>");
-                out.println("<h1>La venta no ha sido registrada, intente de nuevo.</h1>");
-                out.println("<h2><a href="+vContinuar+">Intentar de Nuevo</a></h2></br>");
+                out.println("<h1>El envio no pudo ser confirmado, intente de nuevo.</h1>");
+                out.println("<h2><a href="+vRepetir+">Intentar de Nuevo</a></h2></br>");
+                out.println("<h2><a href="+vContinuar+">Volver al menu</a></h2></br>");
                 out.println("</body>");
                 out.println("</html>");
             }

@@ -6,10 +6,10 @@ package Modelo;
  */
 public class registrosBDD 
 {
-    public boolean registroSales(String vProducto, String vCliente, String vDireccion, int vAmount)
+    public boolean registroSales(String vProducto, String vCliente, String vDireccion, int vAmount, String vPayment)
     {        
         String vInstruction ="";
-        vInstruction = "insert into sales (id_number, description, name, address, amount, status) values (" + "incremento_codigoSales.NextVal,'" +vProducto + "','"+vCliente +"','"+vDireccion+"','"+vAmount +"','Sin empacar')";
+        vInstruction = "insert into sales (id_number, description, name, address, amount, status, payment) values (" + "incremento_codigoSales.NextVal,'" +vProducto + "','"+vCliente +"','"+vDireccion+"','"+vAmount +"','Sin empacar','" + vPayment + "')";
         ManejoBDD m = new ManejoBDD();
         
         boolean vResult = m.Insertar(vInstruction);

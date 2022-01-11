@@ -36,6 +36,9 @@
                 <th>
                     Estado del envio
                 </th>
+                <th>
+                    Metodo de pago
+                </th>
         </thead>
         <%
             ArrayList<ClsSales> aVenta = ManejoBDD.allSales();
@@ -54,6 +57,7 @@
                 <td><%=per.getvName()%></td>
                 <td><%=per.getvAddress()%></td>
                 <td><%=per.getvStatus()%></td>
+                <td><%=per.getvPayment()%></td>
             </tr>            
         </tbody>        
         <%}%>               

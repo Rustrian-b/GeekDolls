@@ -84,10 +84,12 @@ public class registroSales extends HttpServlet {
             String vClient = request.getParameter("client");
             String vAddress = request.getParameter("address");
             String vProduct = request.getParameter("product");
+            String vPayment = request.getParameter("payment");
             int vAmount = Integer.parseInt(request.getParameter("amount"));
             int vOriginalAmount = 0;
             int vFinalAmount = 0;
             String vContinuar = "./index.html";
+            String vRepetir = "./sales.jsp";
             
             ArrayList<ClsInventory> aInventory = ManejoBDD.Inventory();
             Iterator<ClsInventory> iter = aInventory.iterator();
@@ -109,14 +111,14 @@ public class registroSales extends HttpServlet {
                     out.println("<!DOCTYPE html>");
                     out.println("<html>");
                     out.println("<head>");
-                    out.println("<title>Servlet salidaProducto</title>");
+                    out.println("<title>Venta no procesada</title>");
                     out.println("<link rel=\"stylesheet\" href=\"./css/styleServlet.css\">");
                     out.println("</head>");
                     out.println("<body>");
-                    out.println("<h1>Imposible realizar la venta debido a que no existen suficiente cantidad en existencia</h1>");
-                    out.println("<p>La cantidad a retirar es de " + vAmount + " y el maximo disponible es de " + vOriginalAmount + "</p>");
-                    //out.println("<a href=" + vRegresar + "> Haga clic para reintentar </a><br/>");
-                    out.println("<a href=" + vContinuar + "> Haga clic para salir </a> <br/>");                        
+                    out.println("<h1>Imposible realizar la venta debido a que no existe suficiente cantidad del producto "+ vProduct+ " en existencia</h1>");
+                    out.println("<p>La cantidad a retirar es de " + vAmount + " y el maximo disponible es de " + vOriginalAmount + "</p>");                    
+                    out.println("<a href=" + vContinuar + "> Clic para regresar al menu </a> <br/>");
+                    out.println("<a href=" + vRepetir + ">Reintentar </a> <br/>");
                     out.println("</body>");
                     out.println("</html>");
                 }
@@ -128,7 +130,7 @@ public class registroSales extends HttpServlet {
                     
                 registro.updateInventory(vProduct, vFinalAmount);
             
-                boolean vResult = registro.registroSales(vProduct, vClient, vAddress, vAmount);
+                boolean vResult = registro.registroSales(vProduct, vClient, vAddress, vAmount, vPayment);
             
                 if(vResult == true)
                 {
@@ -138,12 +140,14 @@ public class registroSales extends HttpServlet {
                         out.println("<html>");
                         out.println("<head>");
                         //out.println("<link rel=\"stylesheet\" href=\"./css/\">");
-                        out.println("<title>Servlet registroEstudiantes</title>");            
+                        out.println("<title>Venta procesada</title>");
                         out.println("</head>");
                         out.println("<body>");
-                        out.println("<h1>Se ha registrado la venta a nombre de: " + vClient + "</h1>");
-                        out.println("<h1>Que se enviara a la direccion: " + vAddress + "</h1>");
+                        out.println("<h1>Se ha registrado la venta del producto " + vProduct + " a nombre de: " + vClient + "</h1>");
+                        out.println("<h1>Se enviara a la direccion: " + vAddress + "</h1>");
+                        out.println("<h1>Pagado a través de : " + vPayment + "</h1>");
                         out.println("<h2><a href="+vContinuar+">Menú</a></h2></br>");
+                        out.println("<a href=" + vRepetir + ">Registrar otra venta </a> <br/>");
                         out.println("</body>");
                         out.println("</html>");
                     }  
@@ -155,11 +159,12 @@ public class registroSales extends HttpServlet {
                         out.println("<!DOCTYPE html>");
                         out.println("<html>");
                         out.println("<head>");
-                        out.println("<title>Servlet registroEstudiantes</title>");            
+                        out.println("<title>Venta no registrada</title>");            
                         out.println("</head>");
                         out.println("<body>");
-                        out.println("<h1>La venta no ha sido registrada, intente de nuevo.</h1>");
-                        out.println("<h2><a href="+vContinuar+">Intentar de Nuevo</a></h2></br>");
+                        out.println("<h1>La venta no ha sido registrada, este error no deberia ser visible, favor contacte al administrador.</h1>");
+                        out.println("<h2><a href="+vContinuar+">Volver al meny</a></h2></br>");
+                        out.println("<a href=" + vRepetir + ">Reintentar </a> <br/>");
                         out.println("</body>");
                         out.println("</html>");
                     }

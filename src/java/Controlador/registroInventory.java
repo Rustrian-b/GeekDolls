@@ -80,6 +80,7 @@ public class registroInventory extends HttpServlet {
         String vDescription = request.getParameter("description");
         int vAmount = Integer.parseInt(request.getParameter("amount"));
         String vContinuar = "./index.html";
+        String vRepetir = "./inventory.jsp";
         
         registrosBDD registro = new registrosBDD();
         
@@ -93,12 +94,12 @@ public class registroInventory extends HttpServlet {
                 out.println("<html>");
                 out.println("<head>");
                 //out.println("<link rel=\"stylesheet\" href=\"./css/\">");
-                out.println("<title>Registro Inventario</title>");            
+                out.println("<title>Producto registrado</title>");            
                 out.println("</head>");
                 out.println("<body>");
-                out.println("<h1>Se ha registrado el producto: " + vDescription + "</h1>");
-                //out.println("<h1>Que se enviara a la direccion: " + vAddress + "</h1>");
+                out.println("<h1>Se ha registrado "+ vAmount +" unidades del producto: " + vDescription + "</h1>");                
                 out.println("<h2><a href="+vContinuar+">Menú</a></h2></br>");
+                out.println("<h2><a href="+vRepetir+">Registrar nuevo producto</a></h2></br>");
                 out.println("</body>");
                 out.println("</html>");
             }            
@@ -110,11 +111,12 @@ public class registroInventory extends HttpServlet {
                 out.println("<!DOCTYPE html>");
                 out.println("<html>");
                 out.println("<head>");
-                out.println("<title>Registro Inventario</title>");            
+                out.println("<title>Producto no registrado</title>");            
                 out.println("</head>");
                 out.println("<body>");
-                out.println("<h1>La venta no ha sido registrada, intente de nuevo.</h1>");
-                out.println("<h2><a href="+vContinuar+">Intentar de Nuevo</a></h2></br>");
+                out.println("<h1>El producto no ha sido registrado.</h1>");
+                out.println("<h2><a href="+vRepetir+">Intentar de Nuevo</a></h2></br>");
+                out.println("<h2><a href="+vContinuar+">Menú</a></h2></br>");
                 out.println("</body>");
                 out.println("</html>");
             }

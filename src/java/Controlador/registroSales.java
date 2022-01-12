@@ -139,7 +139,7 @@ public class registroSales extends HttpServlet {
                         out.println("<!DOCTYPE html>");
                         out.println("<html>");
                         out.println("<head>");
-                        //out.println("<link rel=\"stylesheet\" href=\"./css/\">");
+                        out.println("<link rel=\"stylesheet\" href=\"./css/styleServlet.css\">");
                         out.println("<title>Venta procesada</title>");
                         out.println("</head>");
                         out.println("<body>");
@@ -159,6 +159,7 @@ public class registroSales extends HttpServlet {
                         out.println("<!DOCTYPE html>");
                         out.println("<html>");
                         out.println("<head>");
+                        out.println("<link rel=\"stylesheet\" href=\"./css/styleServlet.css\">");
                         out.println("<title>Venta no registrada</title>");            
                         out.println("</head>");
                         out.println("<body>");

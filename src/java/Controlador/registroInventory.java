@@ -93,7 +93,7 @@ public class registroInventory extends HttpServlet {
                 out.println("<!DOCTYPE html>");
                 out.println("<html>");
                 out.println("<head>");
-                //out.println("<link rel=\"stylesheet\" href=\"./css/\">");
+                out.println("<link rel=\"stylesheet\" href=\"./css/styleServlet.css\">");
                 out.println("<title>Producto registrado</title>");            
                 out.println("</head>");
                 out.println("<body>");

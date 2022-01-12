@@ -8,45 +8,49 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Inventario</title>
+        <link rel="stylesheet" href="./css/styleInventory.css">
     </head>
     <body>
-        <table>
-            <thead>            
-                <th>
-                    Codigo
-                </th>
-                <th>
-                    Descripción
-                </th>
-                <th>
-                    Cantidad
-                </th>
-            </thead>
-            <%
-                ArrayList<ClsInventory> aProducto = ManejoBDD.Inventory();
-                Iterator<ClsInventory> iter = aProducto.iterator();
-                ClsInventory per = null;
-                
-                while(iter.hasNext())
-                {
-                    per = iter.next();                
-            %>
-                    <tbody>
-                        <tr>
-                            <td><%=per.getvID_number()%></td>
-                            <td><%=per.getvDescription()%></td>
-                            <td><%=per.getvAmount()%></td>
-                        </tr>
-                    </tbody>
-            <%}%>                        
-        </table>
-        
-        
         <div>
+            <table>
+                <thead>            
+                    <th>
+                        Codigo
+                    </th>
+                    <th>
+                        Descripción
+                    </th>
+                    <th>
+                        Cantidad
+                    </th>
+                </thead>
+                <%
+                    ArrayList<ClsInventory> aProducto = ManejoBDD.Inventory();
+                    Iterator<ClsInventory> iter = aProducto.iterator();
+                    ClsInventory per = null;
+
+                    while(iter.hasNext())
+                    {
+                        per = iter.next();                
+                %>
+                        <tbody class="container">
+                            <tr class="item">
+                                <td class="subitem"><%=per.getvID_number()%></td>
+                                <td class="subitem"><%=per.getvDescription()%></td>
+                                <td class="subitem"><%=per.getvAmount()%></td>
+                            </tr>
+                        </tbody>
+                <%}%>                        
+            </table>
+        </div>
+        
+        <div class="formulario">
             <form action="registroInventory" method="post">
-                <p>Producto: <input name="description" type="text" required="" placeholder="Descripción del producto"> </p>
-                <p>Cantidad: <input name="amount" type="number" required="" placeholder="Cantidad a ingresar"> </p>
-                <input type="submit" value="Registrar producto nuevo">
+                <p>Producto: <br/><input name="description" type="text" required="" placeholder="Descripción del producto" class="caja"> </p>
+                <p>Cantidad: <br/><input name="amount" type="number" required="" placeholder="Cantidad a ingresar" class="caja"> </p>
+                <div class="centrar">
+                <input type="submit" value="Registrar producto nuevo" class="boton">
+                </div>
             </form>
         </div>
     </body>

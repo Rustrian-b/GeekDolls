@@ -1,0 +1,109 @@
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html
+{
+    font-size: 62.5%;
+    background-color: #666666;
+    font-family: cursive;
+}
+
+body
+{
+    display: grid;
+    grid-template-columns: 60% 40%;
+    width: 100%;
+    height: 100%;
+}
+
+.item
+{
+    width: 100%;
+    border: #333333 0.2rem solid;    
+    align-content: center;
+    justify-content: center;    
+}
+
+.subitem
+{
+    text-align: center;
+    font-size: 3.3rem;
+    border: #333333 0.2rem solid;
+    
+}
+
+table
+{    
+    width: auto;
+    border-style: solid;    
+}
+
+th
+{
+    font-size: 3.5rem;
+    border: #333333 0.2rem solid;
+}
+
+.formulario
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form
+{    
+    align-self: center;
+    justify-content: center;
+}
+
+input.boton
+{
+    border: 7px;
+    margin: 5px;
+    align-items: center;
+    align-self: center;
+    background-color: white;
+    padding: 5px;    
+    font-size: 2.5rem;
+    border-radius: 2.5rem;
+    position: center;
+}
+
+.boton:hover
+{
+    color: white;
+    background-color: black;
+    box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.2);
+    font-size: 2.7rem;
+    cursor: pointer;    
+}
+
+div.centrar{
+    text-align: center;
+}
+
+p
+{
+    text-align: center;
+    font-size: 3.5rem;
+}
+
+.caja
+{
+    font-size: 2.8rem;
+    background-color: #999999;
+    color: white;
+    text-align: center;
+}
+
+.caja::placeholder
+{
+    color: white;
+    text-align: center;
+    font-size: 2.2rem;
+}

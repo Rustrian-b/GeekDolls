@@ -14,10 +14,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Ventas</title>
+        <link rel="stylesheet" href="./css/styleSales.css">
     </head>
     <body>
         <form action="registroSales" method="post">
-            <p> Producto:
+            <p> Producto:<br/>
             <input list="browsers" name="product">
             <datalist id="browsers">
             <%
@@ -35,19 +36,20 @@
             %>
             </datalist>  
             </p>
-            <p>Cliente: <input name="client" type="text" required="" placeholder="Nombre completo del cliente"> </p>
-            <p>Dirección: <input name="address" type="text" required="" placeholder="Dirección de entrega"> </p>
-            <p>Cantidad: <input name="amount" type="number" required="" placeholder="Cantidad"> </p>
-            <p> Metodo de pago:
+            <p>Cliente: <br/><input name="client" type="text" required="" placeholder="Nombre completo del cliente" class="caja"> </p>
+            <p>Dirección: <br/><input name="address" type="text" required="" placeholder="Dirección de entrega" class="caja"> </p>
+            <p>Cantidad: <br/><input name="amount" type="number" required="" placeholder="Cantidad" class="caja"> </p>
+            <p> Metodo de pago: <br/>
             <input list="metodo" name="payment">
             <datalist id="metodo">
                 <option value="TRANSFERENCIA"></option>
                 <option value="EFECTIVO"></option>
             </datalist>
-            </p>
-            
+            </p>            
             <br/>
-            <input type="submit" value="Registrar venta">
+            <div class="centrar">
+                <input type="submit" value="Registrar venta" class="boton">
+            </div>
         </form>
     </body>
 </html>

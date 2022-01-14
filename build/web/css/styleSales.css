@@ -70,10 +70,8 @@ p
     font-size: 3.5rem;
 }
 
-option
+input[list]
 {
-    font-size: 2.8rem;
-    background-color: #999999;
-    color: white;
-    text-align: center;
+  background: #cccccc;
+  font-size: 3rem;
 }

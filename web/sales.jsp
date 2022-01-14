@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="./css/styleSales.css">
     </head>
     <body>
-        <form action="registroSales" method="post">
+        <form action="registroSales" method="post">            
             <p> Producto:<br/>
             <input list="browsers" name="product">
             <datalist id="browsers">
@@ -49,7 +49,7 @@
             <br/>
             <div class="centrar">
                 <input type="submit" value="Registrar venta" class="boton">
-            </div>
+            </div>            
         </form>
     </body>
 </html>

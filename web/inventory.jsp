@@ -51,7 +51,9 @@
                 <div class="centrar">
                 <input type="submit" value="Registrar producto nuevo" class="boton">
                 </div>
-            </form>
+                <br/>
+                <a href="./index.html">Menu</a>
+            </form>                    
         </div>
     </body>
 </html>

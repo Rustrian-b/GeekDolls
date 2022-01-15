@@ -14,6 +14,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Todas las ventas registradas</title>
+        <link rel="stylesheet" href="./css/styleShipping.css">
     </head>
     <body>
         <table>
@@ -49,15 +50,15 @@
             {
                 per = iter.next();            
         %>
-        <tbody>
-            <tr>
-                <td><%=per.getvID_number()%></td>
-                <td><%=per.getvDescription()%></td>
-                <td><%=per.getvAmount()%></td>
-                <td><%=per.getvName()%></td>
-                <td><%=per.getvAddress()%></td>
-                <td><%=per.getvStatus()%></td>
-                <td><%=per.getvPayment()%></td>
+        <tbody class="container">
+            <tr class="item">
+                <td class="subitem"><%=per.getvID_number()%></td>
+                <td class="subitem"><%=per.getvDescription()%></td>
+                <td class="subitem"><%=per.getvAmount()%></td>
+                <td class="subitem"><%=per.getvName()%></td>
+                <td class="subitem"><%=per.getvAddress()%></td>
+                <td class="subitem"><%=per.getvStatus()%></td>
+                <td class="subitem"><%=per.getvPayment()%></td>
             </tr>            
         </tbody>        
         <%}%>               

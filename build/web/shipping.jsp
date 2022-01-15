@@ -14,9 +14,15 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Envios</title>
+        <link rel="stylesheet" href="./css/styleShipping.css">
     </head>
-    <body>
+    <body>                    
         <h1>Confirmar envio</h1>
+        <form action="registroShipping" method="post" class="contenedor">            
+            <p>Codigo de venta:</p> <input name="id_number" type="number" required="" placeholder="Numero de venta que fue empaquetado" class="caja">
+            <input type="submit" value="Confirmar venta" class="boton">
+        </form>
+        <br/>
         <table>
             <thead>
                 <th>
@@ -50,25 +56,22 @@
             {
                 per = iter.next();            
         %>        
-        <tbody>
-            <tr>
-                <td><%=per.getvID_number()%></td>
-                <td><%=per.getvDescription()%></td>
-                <td><%=per.getvAmount()%></td>
-                <td><%=per.getvName()%></td>
-                <td><%=per.getvAddress()%></td>
-                <td><%=per.getvStatus()%></td>
-                <td><%=per.getvPayment()%></td>
+        <tbody class="container">
+            <tr class ="item">
+                <td class ="subitem"><%=per.getvID_number()%></td>
+                <td class ="subitem"><%=per.getvDescription()%></td>
+                <td class ="subitem"><%=per.getvAmount()%></td>
+                <td class ="subitem"><%=per.getvName()%></td>
+                <td class ="subitem"><%=per.getvAddress()%></td>
+                <td class ="subitem"><%=per.getvStatus()%></td>
+                <td class ="subitem"><%=per.getvPayment()%></td>
             </tr>            
         </tbody>        
         <%}%>               
-        </table>
-        
-        <div>
-            <form action="registroShipping" method="post">
-                <p>Codigo de venta: <input name="id_number" type="number" required="" placeholder="Numero de venta que fue empaquetado"> </p>
-                <input type="submit" value="Confirmar venta">
-            </form>
+        </table>      
+        <br/>
+        <div class="conta">
+            <a href="./index.html">Menu</a>
         </div>
     </body>
 </html>

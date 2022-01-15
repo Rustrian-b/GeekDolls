@@ -10,16 +10,64 @@ html
     font-size: 62.5%;
     background-color: #666666;
     font-family: cursive;
-    height: 100%;   
 }
 
-body
-{    
-    height: 100%;
-    display: flex;    
-    flex-direction: column;
-    align-items: center;    
+.item
+{
+    width: 100%;
+    border: #333333 0.2rem solid;    
+    align-content: center;
     justify-content: center;
+}
+
+.subitem
+{
+    text-align: center;
+    font-size: 2.5rem;
+    border: #333333 0.2rem solid;
+    
+}
+
+table
+{    
+    width: auto;
+    border-style: solid;    
+    margin: auto;
+}
+
+th
+{
+    font-size: 2.8rem;
+    border: #333333 0.2rem solid;
+}
+
+.contenedor
+{
+    display: grid;
+    grid-template-columns: 33% 33% 34%;    
+    align-items: center;
+    justify-content: space-evenly;    
+}
+
+form
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+}
+
+h1
+{
+    font-size: 4rem;
+    text-align: center;
+}
+
+p
+{
+    font-size: 2.5rem;
+    text-align: center;
 }
 
 .boton
@@ -43,7 +91,7 @@ body
     font-size: 2.7rem;
     cursor: pointer;
 }
-    
+
 .caja
 {
     font-size: 2.8rem;
@@ -59,24 +107,6 @@ body
     text-align: center;
     font-size: 2.2rem;
     border-radius: 2.5rem;
-}    
-
-div.centrar
-{
-    text-align: center;
-}
-
-p
-{
-    text-align: center;
-    font-size: 3.5rem;
-}
-
-input[list]
-{
-  background: #cccccc;
-  font-size: 3rem;
-  border-radius: 2.5rem;
 }
 
 a

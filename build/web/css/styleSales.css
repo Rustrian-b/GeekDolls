@@ -42,7 +42,7 @@ body
     box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.2);
     font-size: 2.7rem;
     cursor: pointer;
-}    
+}
     
 .caja
 {
@@ -50,6 +50,7 @@ body
     background-color: #999999;
     color: white;
     text-align: center;
+    border-radius: 2.5rem;
 }
 
 .caja::placeholder
@@ -57,6 +58,7 @@ body
     color: white;
     text-align: center;
     font-size: 2.2rem;
+    border-radius: 2.5rem;
 }    
 
 div.centrar
@@ -74,4 +76,26 @@ input[list]
 {
   background: #cccccc;
   font-size: 3rem;
+  border-radius: 2.5rem;
+}
+
+a
+{    
+    text-align: center;
+    font-size: 3.5rem;
+    color: black;
+    text-decoration:none;
+    margin: 0 auto;
+}
+
+a:hover
+{
+    color: #003399;
+}
+
+.conta
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

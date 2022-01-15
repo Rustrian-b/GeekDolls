@@ -51,5 +51,9 @@
                 <input type="submit" value="Registrar venta" class="boton">
             </div>            
         </form>
+        <br/>
+        <div class="conta">
+            <a href="./index.html">Menu</a>
+        </div>
     </body>
 </html>

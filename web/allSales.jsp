@@ -32,13 +32,19 @@
                     Cliente
                 </th>
                 <th>
-                    Dirección
+                    Dirección de entrega
                 </th>
                 <th>
                     Estado del envio
                 </th>
                 <th>
                     Metodo de pago
+                </th>
+                <th>
+                    Telefono
+                </th>
+                <th>
+                    Telefono 2
                 </th>
         </thead>
         <%
@@ -59,6 +65,8 @@
                 <td class="subitem"><%=per.getvAddress()%></td>
                 <td class="subitem"><%=per.getvStatus()%></td>
                 <td class="subitem"><%=per.getvPayment()%></td>
+                <td class="subitem"><%=per.getvPhone()%></td>
+                <td class="subitem"><%=per.getvPhone1()%></td>
             </tr>            
         </tbody>        
         <%}%>               

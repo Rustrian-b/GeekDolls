@@ -17,6 +17,8 @@ public class ClsSales
     
     int vID_number;
     int vAmount;
+    int vPhone;
+    int vPhone1;
     String vDescription;
     String vName;
     String vAddress;
@@ -79,15 +81,34 @@ public class ClsSales
         this.vPayment = vPayment;
     }
 
-    public ClsSales(int vID_number, int vAmount, String vDescription, String vName, String vAddress, String vStatus, String vPayment) {
+    public int getvPhone() {
+        return vPhone;
+    }
+
+    public void setvPhone(int vPhone) {
+        this.vPhone = vPhone;
+    }
+
+    public int getvPhone1() {
+        return vPhone1;
+    }
+
+    public void setvPhone1(int vPhone1) {
+        this.vPhone1 = vPhone1;
+    }
+
+    public ClsSales(int vID_number, int vAmount, int vPhone, int vPhone1, String vDescription, String vName, String vAddress, String vStatus, String vPayment) {
         this.vID_number = vID_number;
         this.vAmount = vAmount;
+        this.vPhone = vPhone;
+        this.vPhone1 = vPhone1;
         this.vDescription = vDescription;
         this.vName = vName;
         this.vAddress = vAddress;
         this.vStatus = vStatus;
         this.vPayment = vPayment;
     }
+
     
     
 }

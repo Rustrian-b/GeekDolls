@@ -86,6 +86,18 @@ public class registroSales extends HttpServlet {
             String vProduct = request.getParameter("product");
             String vPayment = request.getParameter("payment");
             int vAmount = Integer.parseInt(request.getParameter("amount"));
+            int vPhone = Integer.parseInt(request.getParameter("phone"));
+            int vPhone1 = 0;
+                       
+            try
+            {
+                vPhone1 = Integer.parseInt(request.getParameter("phone1"));
+            }catch (java.lang.NumberFormatException ex)
+            {
+                vPhone1 = 0;
+            }
+            
+            
             int vOriginalAmount = 0;
             int vFinalAmount = 0;
             String vContinuar = "./index.html";
@@ -130,7 +142,7 @@ public class registroSales extends HttpServlet {
                     
                 registro.updateInventory(vProduct, vFinalAmount);
             
-                boolean vResult = registro.registroSales(vProduct, vClient, vAddress, vAmount, vPayment);
+                boolean vResult = registro.registroSales(vProduct, vClient, vAddress, vAmount, vPayment, vPhone, vPhone1);
             
                 if(vResult == true)
                 {

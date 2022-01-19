@@ -39,11 +39,13 @@
             <p>Cliente: <br/><input name="client" type="text" required="" placeholder="Nombre completo del cliente" class="caja"> </p>
             <p>Dirección: <br/><input name="address" type="text" required="" placeholder="Dirección de entrega" class="caja"> </p>
             <p>Cantidad: <br/><input name="amount" type="number" required="" placeholder="Cantidad" class="caja"> </p>
+            <p>Telefono: <br/><input name="phone" type="number" required="" placeholder="Numero de telefono" class="caja"> </p>
+            <p>Telefono respaldo: <br/><input name="phone1" type="number" placeholder="Numero de telefono" class="caja"> </p>
             <p> Metodo de pago: <br/>
             <input list="metodo" name="payment">
             <datalist id="metodo">
-                <option value="TRANSFERENCIA"></option>
-                <option value="EFECTIVO"></option>
+                <option value="Transferencia"></option>
+                <option value="Efectivo"></option>
             </datalist>
             </p>            
             <br/>

@@ -138,7 +138,7 @@ public class ManejoBDD
     public static ArrayList Sales()
     {
         ArrayList<ClsSales> lista = new ArrayList();
-        String Query = "select id_number, description, name, address, status, amount, payment from sales where status = 'Sin empacar' order by id_number";
+        String Query = "select id_number, description, name, address, status, amount, payment, phone, phone2 from sales where status = 'Sin empacar' order by id_number";
         conectar();
         
         try
@@ -156,6 +156,8 @@ public class ManejoBDD
                 c.setvStatus(r.getString(5));
                 c.setvAmount(Integer.parseInt(r.getString(6)));
                 c.setvPayment(r.getString(7));
+                c.setvPhone(Integer.parseInt(r.getString(8)));
+                c.setvPhone1(Integer.parseInt(r.getString(9)));
                 lista.add(c);
             }
         }catch(SQLException ex)
@@ -168,7 +170,7 @@ public class ManejoBDD
     public static ArrayList allSales()
     {
         ArrayList<ClsSales> lista = new ArrayList();
-        String Query = "select id_number, description, name, address, status, amount, payment from sales order by id_number";
+        String Query = "select id_number, description, name, address, status, amount, payment, phone, phone2 from sales order by id_number";
         conectar();
         
         try
@@ -186,6 +188,8 @@ public class ManejoBDD
                 c.setvStatus(r.getString(5));
                 c.setvAmount(Integer.parseInt(r.getString(6)));
                 c.setvPayment(r.getString(7));
+                c.setvPhone(Integer.parseInt(r.getString(8)));
+                c.setvPhone1(Integer.parseInt(r.getString(9)));
                 lista.add(c);
             }
         }catch(SQLException ex)

@@ -46,6 +46,12 @@
                 <th>
                     Metodo de pago
                 </th>
+                <th>
+                    Telefono
+                </th>
+                <th>
+                    Telefono 2
+                </th>
         </thead>
         <%
             ArrayList<ClsSales> aVenta = ManejoBDD.Sales();
@@ -65,6 +71,8 @@
                 <td class ="subitem"><%=per.getvAddress()%></td>
                 <td class ="subitem"><%=per.getvStatus()%></td>
                 <td class ="subitem"><%=per.getvPayment()%></td>
+                <td class ="subitem"><%=per.getvPhone()%></td>
+                <td class ="subitem"><%=per.getvPhone1()%></td>
             </tr>            
         </tbody>        
         <%}%>               
